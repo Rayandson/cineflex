@@ -13,7 +13,7 @@ export default function Session(props) {
 }
 
 const SessionContainer = styled.div`
-width: 100%;
+width: 100vw;
 height:95px;
 display: flex;
 flex-direction: column;
@@ -21,17 +21,20 @@ justify-content: space-between;
 align-items: center;
 font-family: 'Roboto', sans-serif;
 margin-bottom: 40px;
+
  h2 {
     font-size:20px;
     font-weight: 400;
+    @media (max-width: 450px) {
+    margin-left: 23px;
+    }
  }
  @media (max-width: 450px) {
     align-items: flex-start;
-    padding-left: 35px;
  }
 `
 const BotoesDiv = styled.div`
-width: 350px;
+width: 80vw;
 display: flex;
 flex-wrap: wrap;
 gap: 18px;
@@ -39,6 +42,7 @@ justify-content: center;
 @media (max-width: 450px) {
     justify-content: flex-start;
     gap: 8px;
+    margin-left: 23px;
 }
 `
 

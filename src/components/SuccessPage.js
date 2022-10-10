@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -26,7 +27,7 @@ export default function SuccessPage(props) {
         <p>Nome: {props.nome}</p>
         <p>CPF: {props.cpf}</p>
         </StyledDiv>
-        <Botao>Voltar pra Home</Botao>
+        <Link to="/"><Botao>Voltar pra Home</Botao></Link>
         </Conteudo>
         </>
     )
@@ -71,7 +72,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: flex-start;
-padding-left: 25px;
+/* padding-left: 25px; */
 h2 {
     font-family: 'Roboto';
 font-style: normal;
@@ -79,6 +80,16 @@ font-weight: 700;
 font-size: 24px;
 color: #293845;
 margin-bottom: 10px;
+margin-left: 25px;
+}
+p{
+    margin-left: 25px;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+color: #293845;
+
 }
 
 `
@@ -94,5 +105,6 @@ font-weight: 400;
 font-size: 18px;
 color: #FFFFFF;
 border: none;
+margin-top: 50px;
 
 `

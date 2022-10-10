@@ -57,7 +57,7 @@ align-items: center;
 `
 
 const Heading = styled.div`
-width: 100%;
+width: 80%;
 height: 110px;
 background-color: #FFFFFF;
 display: flex;
