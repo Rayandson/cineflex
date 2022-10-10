@@ -4,13 +4,12 @@ import {useState, useEffect} from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
 
-export default function MoviesPage() {
+export default function MoviesPage(props) {
     const [movies, setMovies] = useState(undefined);
-
+    
     useEffect(() => {
         let promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
         promise.then((resp) => setMovies(resp.data))
-        // promise.then((r) => console.log(r.data))
     },[])
     if(movies === undefined) {
         return(
@@ -25,7 +24,7 @@ export default function MoviesPage() {
         </Heading>   
         <MoviesContainer>
         <div>
-        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie url={movie.posterURL}/></Link> )}
+        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie url={movie.posterURL} title={movie.title} setMovie={props.setMovie}/></Link> )}
         </div>
         </MoviesContainer>
         </Conteudo>

@@ -4,10 +4,10 @@ import axios from "axios"
 import Session from "./Session"
 import { useParams} from "react-router-dom"
 
-export default function SessionsPage() {
+export default function SessionsPage(props) {
     const {movieId} = useParams();
     const [sessions, setSessions] = useState(undefined);
-
+  
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${movieId}/showtimes`);
 
@@ -22,7 +22,7 @@ export default function SessionsPage() {
         <Heading>
         <h1>Selecione o horário:</h1> 
         </Heading>
-        {sessions.days.map((s) => <Session weekday={s.weekday} date={s.date} showtimes={s.showtimes}/> )}
+        {sessions.days.map((s) => <Session weekday={s.weekday} date={s.date} showtimes={s.showtimes} setDate={props.setDate} /> )}
         <Footer>
             <ImgDiv>
             <img src={sessions.posterURL} />

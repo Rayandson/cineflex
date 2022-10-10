@@ -6,7 +6,7 @@ export default function Session(props) {
         <SessionContainer>
             <h2>{props.weekday} - {props.date}</h2>
             <BotoesDiv>
-                {props.showtimes.map((t) => <Link to={`/seats/${t.id}`}><Botao>{t.name}</Botao></Link>)}
+                {props.showtimes.map((t) => <Link to={`/seats/${t.id}`}><Botao onClick={() => props.setDate(props.date)}>{t.name}</Botao></Link>)}
             </BotoesDiv>
         </SessionContainer>
     )

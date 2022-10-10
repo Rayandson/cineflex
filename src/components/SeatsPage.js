@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Seat from "./Seat";
 
-export default function SeatsPage() {
+
+export default function SeatsPage(props) {
   const { sessionId } = useParams();
   const [seatsPage, setSeatsPage] = useState(undefined);
   const [seats, setSeats] = useState([]);
-
+  const [seatsId, setSeatsId] = useState([]);
+  
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${sessionId}/seats`
@@ -16,10 +18,16 @@ export default function SeatsPage() {
     promise.then((resp) => {
       setSeats(resp.data.seats);
       setSeatsPage(resp.data);
-      console.log(resp);
+      props.setTime(resp.data.name)
     });
     promise.catch((erro) => console.log(erro));
   }, []);
+
+  function reserve() {
+    const requisicao = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", {ids: seatsId, nome: props.nome, cpf: props.cpf})
+    requisicao.then((r) => console.log(r));
+    requisicao.catch((erro) => console.log(erro))
+  }
 
   if (seatsPage !== undefined) {
     return (
@@ -29,7 +37,7 @@ export default function SeatsPage() {
         </Heading>
         <SeatsContainer>
           {seats.map((s) => (
-            <Seat name={s.name} isAvailable={s.isAvailable} />
+            <Seat id={s.id} name={s.name} seats={props.seats} setSeats={props.setSeats} isAvailable={s.isAvailable} seatsId = {seatsId} setSeatsId={setSeatsId} />
           ))}
         </SeatsContainer>
         <SeatsDescription>
@@ -49,14 +57,14 @@ export default function SeatsPage() {
         <Inputs>
           <InputContainer>
             <p>Nome do comprador</p>
-            <input placeholder="Digite seu nome..."></input>
+            <input placeholder="Digite seu nome..." onChange={(e) => props.setNome(e.target.value)} value={props.nome}></input>
           </InputContainer>
           <InputContainer>
             <p>CPF do comprador</p>
-            <input placeholder="Digite seu CPF..."></input>
+            <input placeholder="Digite seu CPF..." onChange={(e) => props.setCpf(e.target.value)} value={props.cpf}></input>
           </InputContainer>
         </Inputs>
-        <StyledButton>Reservar assento(s)</StyledButton>
+        <Link to={`/success`}><StyledButton onClick={reserve}>Reservar assento(s)</StyledButton></Link>
         <Footer>
           <ImgDiv>
             <img src={seatsPage.movie.posterURL} />

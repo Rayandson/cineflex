@@ -3,7 +3,7 @@ import styled from "styled-components"
 export default function Movie(props) {
     return(
         <>
-        <Poster src={props.url} />
+        <Poster src={props.url} onClick={() => props.setMovie(props.title)} />
         </>
     )
 }

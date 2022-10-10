@@ -5,8 +5,26 @@ export default function Seat(props) {
     const [isSelected, SetIsSelected] = useState(false)
 
     function select(){
+        let array = props.seatsId;
+        let arraySeats = props.seats;
+        let index;
+        // let indexSeats;
         if(props.isAvailable === true) {
         SetIsSelected(!isSelected)
+        if(array.includes(props.id)) {
+            index = array.indexOf(props.id);
+            array.splice(index, 1);
+            props.setSeatsId(array);
+            arraySeats.splice(index, 1);
+            props.setSeats(arraySeats)
+        } else {
+            array.push(props.id)
+            props.setSeatsId(array);
+            arraySeats.push(props.name);
+            props.setSeats(arraySeats);
+        }
+        } else {
+            alert("Esse assento não está disponível")
         }
     }
 
