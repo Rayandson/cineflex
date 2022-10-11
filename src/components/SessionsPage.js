@@ -95,7 +95,7 @@ const Footer = styled.footer`
 
   @media (max-width: 450px) {
     justify-content: flex-start;
-    height: 115px;
+    height: 100px;
   }
 `;
 

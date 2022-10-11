@@ -60,7 +60,6 @@ margin-top: 40vh;
 
 const MoviesContainer = styled.div`
 div{
-    /* background-color: red; */
 width: 1083px;
 display: flex;
 justify-content: flex-start;
@@ -70,7 +69,6 @@ padding-bottom: 50px;
 @media(max-width:450px) {
     width: 95vw; 
     justify-content: center;
-    background-color: green;
 }
 }
 `
