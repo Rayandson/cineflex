@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {useState, useEffect} from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
+import gif from "../assets/img/Rolling2.gif"
 
 export default function MoviesPage(props) {
     const [movies, setMovies] = useState(undefined);
@@ -14,7 +15,7 @@ export default function MoviesPage(props) {
     if(movies === undefined) {
         return(
         <Conteudo>
-            <p>Carregando...</p>
+            <Gif src={gif}/>
         </Conteudo>)
     } else {
     return(
@@ -52,6 +53,11 @@ align-items: center;
     font-weight: 400;
     }
 `
+const Gif = styled.img`
+width: 50px;
+margin-top: 40vh;
+`
+
 const MoviesContainer = styled.div`
 div{
     /* background-color: red; */

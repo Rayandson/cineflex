@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Seat from "./Seat";
+import gif from "../assets/img/Rolling2.gif"
 
 
 export default function SeatsPage(props) {
@@ -78,7 +79,10 @@ export default function SeatsPage(props) {
         </Footer>
       </Conteudo>
     );
-  } else return "Carregando";
+  } else return (
+    <Conteudo>
+        <Gif src={gif}/>
+    </Conteudo>)
 }
 
 const Conteudo = styled.div`
@@ -96,6 +100,11 @@ const Conteudo = styled.div`
         margin-bottom: 115px;
     }
 `;
+
+const Gif = styled.img`
+width: 50px;
+margin-top: 40vh;
+`
 
 const Heading = styled.div`
   width: 100%;

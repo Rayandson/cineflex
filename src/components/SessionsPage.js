@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 import axios from "axios"
 import Session from "./Session"
 import { useParams} from "react-router-dom"
+import gif from "../assets/img/Rolling2.gif"
 
 export default function SessionsPage(props) {
     const {movieId} = useParams();
@@ -35,7 +36,7 @@ export default function SessionsPage(props) {
     } else {
         return (
         <Conteudo>
-            <p>Carregando...</p>
+            <Gif src={gif}/>
         </Conteudo>)
     }
 }
@@ -54,6 +55,10 @@ align-items: center;
     @media (max-width:450px) {
         margin-bottom: 115px;
     }
+`
+const Gif = styled.img`
+width: 50px;
+margin-top: 40vh;
 `
 
 const Heading = styled.div`
