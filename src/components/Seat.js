@@ -50,4 +50,7 @@ font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 11px;
+&:hover {
+    cursor: pointer;
+}
 `

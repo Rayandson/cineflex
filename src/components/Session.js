@@ -54,4 +54,7 @@ color:#FFFFFF;
 font-size: 18px;
 font-family: 'Roboto', sans-serif;
 border: none;
+&:hover {
+    cursor: pointer;
+}
 `
