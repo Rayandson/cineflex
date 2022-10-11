@@ -25,7 +25,7 @@ export default function MoviesPage(props) {
         </Heading>   
         <MoviesContainer>
         <div>
-        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie url={movie.posterURL} title={movie.title} setMovie={props.setMovie}/></Link> )}
+        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie id={movie.id} url={movie.posterURL} title={movie.title} setMovie={props.setMovie}/></Link> )}
         </div>
         </MoviesContainer>
         </Conteudo>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Seat from "./Seat";
 import gif from "../assets/img/Rolling2.gif"
@@ -11,6 +11,7 @@ export default function SeatsPage(props) {
   const [seatsPage, setSeatsPage] = useState(undefined);
   const [seats, setSeats] = useState([]);
   const [seatsId, setSeatsId] = useState([]);
+  const navigate = useNavigate();
   
   useEffect(() => {
     const promise = axios.get(
@@ -28,6 +29,8 @@ export default function SeatsPage(props) {
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", {ids: seatsId, nome: props.nome, cpf: props.cpf})
     requisicao.then((r) => console.log(r));
     requisicao.catch((erro) => console.log(erro))
+    navigate(`/success`);
+    window.scrollTo(0, 0);
   }
 
   if (seatsPage !== undefined) {
@@ -65,7 +68,7 @@ export default function SeatsPage(props) {
             <input placeholder="Digite seu CPF..." onChange={(e) => props.setCpf(e.target.value)} value={props.cpf}></input>
           </InputContainer>
         </Inputs>
-        <Link to={`/success`}><StyledButton onClick={reserve}>Reservar assento(s)</StyledButton></Link>
+        <StyledButton onClick={reserve}>Reservar assento(s)</StyledButton>
         <Footer>
           <ImgDiv>
             <img src={seatsPage.movie.posterURL} />
