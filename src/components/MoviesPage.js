@@ -68,8 +68,9 @@ gap: 30px;
 flex-wrap: wrap;
 padding-bottom: 50px;
 @media(max-width:450px) {
-    width: 75vw; 
+    width: 95vw; 
     justify-content: center;
+    background-color: green;
 }
 }
 `
