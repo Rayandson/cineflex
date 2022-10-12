@@ -28,6 +28,7 @@ export default function SeatsPage(props) {
     const requisicao = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", {ids: seatsId, nome: props.nome, cpf: props.cpf})
     requisicao.then((r) => console.log(r));
     requisicao.catch((erro) => console.log(erro))
+    window.scrollTo(0, 0);
   }
 
   if (seatsPage !== undefined) {
