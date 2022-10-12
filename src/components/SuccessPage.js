@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 
 export default function SuccessPage(props) {
+    const navigate = useNavigate();
     console.log(props)
     let arrayOrdenado = props.seats;
     arrayOrdenado.sort();
@@ -27,7 +28,7 @@ export default function SuccessPage(props) {
         <p>Nome: {props.nome}</p>
         <p>CPF: {props.cpf}</p>
         </StyledDiv>
-        <Link to="/"><Botao>Voltar pra Home</Botao></Link>
+            <Botao onClick={() => navigate("/")}>Voltar pra Home</Botao>
         </Conteudo>
         </>
     )
@@ -106,5 +107,7 @@ font-size: 18px;
 color: #FFFFFF;
 border: none;
 margin-top: 50px;
-
+&:hover {
+    cursor: pointer;
+}
 `

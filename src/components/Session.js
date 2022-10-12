@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Session(props) {
+    const navigate = useNavigate();
+
+    function selectSession(id) {
+        props.setDate(props.date)
+        navigate(`/seats/${id}`)
+    }
     return(
         <SessionContainer>
             <h2>{props.weekday} - {props.date}</h2>
             <BotoesDiv>
-                {props.showtimes.map((t) => <Link to={`/seats/${t.id}`}><Botao onClick={() => props.setDate(props.date)}>{t.name}</Botao></Link>)}
+                {props.showtimes.map((t) => <Botao onClick={() => selectSession(t.id)}>{t.name}</Botao>)}
             </BotoesDiv>
         </SessionContainer>
     )
