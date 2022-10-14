@@ -5,6 +5,8 @@ import MoviesPage from "./MoviesPage"
 import SessionsPage from "./SessionsPage"
 import SeatsPage from "./SeatsPage"
 import SuccessPage from "./SuccessPage";
+import styled from "styled-components";
+import bg from "../assets/img/cine-background.jpg"
 
 export default function App() {
     const [movie, setMovie] = useState("");
@@ -15,6 +17,7 @@ export default function App() {
     const [seats, setSeats] = useState([])
     return(
     <BrowserRouter>
+    <AppContainer>
     <NavBar />
     <Routes>
         <Route path="/" element={<MoviesPage movie={movie} setMovie={setMovie}/>}/>
@@ -22,6 +25,18 @@ export default function App() {
         <Route path="/seats/:sessionId" element={<SeatsPage nome={nome} setNome={setNome} cpf={cpf} setCpf={setCpf} setTime={setTime} seats={seats} setSeats={setSeats}/>} />
         <Route path="/success" element={<SuccessPage movie={movie} date={date} time={time} nome={nome} cpf={cpf} seats={seats}/>} />
     </Routes>
+    </AppContainer>
     </BrowserRouter>
     )
 }
+const AppContainer = styled.div`
+min-height: calc(100vh - 67px);
+margin-top: 67px;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${bg});
+background-size: 1400px;
+background-color: black;
+@media (max-width: 450px) {
+    background-size: 550px;
+    background-repeat: no-repeat;
+}
+`

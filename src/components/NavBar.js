@@ -20,9 +20,9 @@ align-items: center;
 position: fixed;
 left: 0;
 top: 0;
-background-color: #C3CFD9;
+background-color: #004076;
 color: orange;
-font-family: 'Roboto', sans-serif;
-font-size: 34px;
+font-family: 'Road Rage', cursive;
+font-size: 46px;
 font-weight: 400;
 `

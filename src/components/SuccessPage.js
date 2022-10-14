@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import bg from "../assets/img/cine-background.jpg"
 
 
 export default function SuccessPage(props) {
@@ -35,28 +36,25 @@ export default function SuccessPage(props) {
 }
 
 const Conteudo = styled.div`
+height: calc(100vh - 67px);
 margin-top: 67px;
-margin-bottom: 100px;
 display: flex;
 flex-direction: column;
 align-items: center;
+
     h1 {
         font-family: 'Roboto';
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
-color: #247A6B;
-
-    }
-    @media (max-width:450px) {
-        margin-bottom: 115px;
+color: #2FCF8C;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 `
 
 const Heading = styled.div`
 width: 100%;
 height: 110px;
-background-color: #FFFFFF;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -72,25 +70,31 @@ height: 110px;
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: flex-start;
-/* padding-left: 25px; */
+align-items: center;
 h2 {
     font-family: 'Roboto';
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
-color: #293845;
+color: #FFFFFF;
 margin-bottom: 10px;
-margin-left: 25px;
 }
 p{
-    margin-left: 25px;
     font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 22px;
-color: #293845;
+color: #FFFFFF;
 
+}
+@media (max-width: 450px) {
+    align-items: flex-start;
+    h2 {
+        margin-left: 25px;
+    }
+    p {
+    margin-left: 25px;
+}
 }
 
 `
@@ -107,6 +111,7 @@ font-size: 18px;
 color: #FFFFFF;
 border: none;
 margin-top: 50px;
+margin-bottom: 60px;
 &:hover {
     cursor: pointer;
 }

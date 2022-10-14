@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Seat from "./Seat";
 import gif from "../assets/img/Rolling2.gif"
+import bg from "../assets/img/cine-background.jpg"
 
 
 export default function SeatsPage(props) {
@@ -35,6 +36,7 @@ export default function SeatsPage(props) {
 
   if (seatsPage !== undefined) {
     return (
+      <ConteudoContainer>
       <Conteudo>
         <Heading>
           <h1>Selecione o(s) assento(s):</h1>
@@ -69,6 +71,7 @@ export default function SeatsPage(props) {
           </InputContainer>
         </Inputs>
         <StyledButton onClick={reserve}>Reservar assento(s)</StyledButton>
+        </Conteudo>
         <Footer>
           <ImgDiv>
             <img src={seatsPage.movie.posterURL} />
@@ -80,7 +83,7 @@ export default function SeatsPage(props) {
             </p>
           </div>
         </Footer>
-      </Conteudo>
+      </ConteudoContainer>
     );
   } else return (
     <Conteudo>
@@ -89,19 +92,36 @@ export default function SeatsPage(props) {
 }
 
 const Conteudo = styled.div`
-  margin-top: 67px;
-  display: flex;
+height: calc(100vh - 167px);
+overflow:scroll;
+ display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+/*box-sizing: content-box; */
+
+&::-webkit-scrollbar {
+  display: none;
+}
+`
+
+const ConteudoContainer = styled.div`
+min-height: calc(100vh - 67px);
+  margin-top: 67px;
+  display: flex;
+ justify-content: center;
+  /* margin-bottom: 100px; */
+  /* background: url(${bg});
+  background-size: 1400px; */
   h1 {
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 400;
+    color: #FFFFFF
   }
-  @media (max-width:450px) {
-        margin-bottom: 115px;
-    }
+  /* @media (max-width:450px) {
+    background-size: 550px;
+        background-repeat: no-repeat;
+    } */
 `;
 
 const Gif = styled.img`
@@ -112,10 +132,10 @@ margin-top: 40vh;
 const Heading = styled.div`
   width: 100%;
   height: 110px;
-  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 `;
 
 const SeatsContainer = styled.div`
@@ -151,6 +171,7 @@ const DescriptionDiv = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
+    color: #FFFFFF
   }
 `;
 
@@ -186,7 +207,7 @@ const InputContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    color: #293845;
+    color: #FFFFFF;
   }
   input {
     width: 600px;
@@ -226,14 +247,17 @@ const StyledButton = styled.button`
   font-weight: 400;
   font-size: 18px;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  flex-shrink: 0;
+  &:hover {
+    cursor: pointer;
+  }
 `;
-
 const Footer = styled.footer`
   width: 100%;
   height: 100px;
-  background: #dfe6ed;
-  border: 1px solid #9eadba;
+  background: linear-gradient(180deg, rgba(4, 36, 63, 0.5) 0%, rgba(0, 64, 118, 0) 100%);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,17 +273,18 @@ const Footer = styled.footer`
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    color: #293845;
+    color: #FFFFFF;
   }
 
   @media (max-width: 450px) {
     justify-content: flex-start;
-    height: 115px;
+    height: 100px;
   }
 `;
+
 const ImgDiv = styled.div`
-  width: 64px;
-  height: 89px;
+  width: 57px;
+  height: 80px;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 2px;

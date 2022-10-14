@@ -12,7 +12,9 @@ export default function Movie(props) {
     }
     return(
         <>
+        <PosterContainer>
         <Poster src={props.url} onClick={selectMovie} />
+        </PosterContainer>
         </>
     )
 }
@@ -20,4 +22,18 @@ export default function Movie(props) {
 const Poster = styled.img`
 width:129px;
 height: 193px;
+
+`
+
+const PosterContainer = styled.div`
+width: 136px;
+height: 200px;
+background-color: #FFFFFF;
+display: flex;
+justify-content: center;
+align-items: center;
+&:hover {
+    filter: brightness(0.7);
+    transition: filter, 0.4s;
+}
 `

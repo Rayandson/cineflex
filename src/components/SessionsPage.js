@@ -4,6 +4,7 @@ import axios from "axios"
 import Session from "./Session"
 import { useParams} from "react-router-dom"
 import gif from "../assets/img/Rolling2.gif"
+import bg from "../assets/img/cine-background.jpg"
 
 export default function SessionsPage(props) {
     const {movieId} = useParams();
@@ -19,42 +20,63 @@ export default function SessionsPage(props) {
     if(sessions !== undefined) {
     return(
         <>
+        <ConteudoContainer>
         <Conteudo>
         <Heading>
         <h1>Selecione o horário:</h1> 
         </Heading>
+        {/* <SessionsDiv> */}
         {sessions.days.map((s) => <Session weekday={s.weekday} date={s.date} showtimes={s.showtimes} setDate={props.setDate} /> )}
+        {/* </SessionsDiv>  */}
+        </Conteudo>
         <Footer>
             <ImgDiv>
             <img src={sessions.posterURL} />
             </ImgDiv>
             <p>{sessions.title}</p>
-        </Footer>
-        </Conteudo>
+        </Footer> 
+        </ConteudoContainer>
         </>
     )
     } else {
         return (
-        <Conteudo>
+        <ConteudoContainer>
             <Gif src={gif}/>
-        </Conteudo>)
+        </ConteudoContainer>)
     }
 }
 
-const Conteudo = styled.div`
+const ConteudoContainer = styled.div`
+min-height: calc(100vh - 67px);
 margin-top: 67px;
-margin-bottom: 100px;
+/* margin-bottom: 100px; */
 display: flex;
 flex-direction: column;
 align-items: center;
+/* background: url(${bg});
+background-size: 1400px; */
+/* height: 600px;
+overflow-y:scroll; */
     h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 400;
+    color: #FFFFFF;
     }
-    @media (max-width:450px) {
-        margin-bottom: 115px;
-    }
+    /* @media (max-width:450px) {
+        background-size: 550px;
+        background-repeat: no-repeat;
+    } */
+`
+
+const Conteudo = styled.div`
+height: calc(100vh - 167px);
+overflow:scroll;
+
+&::-webkit-scrollbar {
+  display: none;
+}
+
 `
 const Gif = styled.img`
 width: 50px;
@@ -62,9 +84,8 @@ margin-top: 40vh;
 `
 
 const Heading = styled.div`
-width: 80%;
+width: 100%;
 height: 110px;
-background-color: #FFFFFF;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -73,8 +94,7 @@ align-items: center;
 const Footer = styled.footer`
   width: 100%;
   height: 100px;
-  background: #dfe6ed;
-  border: 1px solid #9eadba;
+  background: linear-gradient(180deg, rgba(4, 36, 63, 0.5) 0%, rgba(0, 64, 118, 0) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +110,7 @@ const Footer = styled.footer`
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    color: #293845;
+    color: #FFFFFF;
   }
 
   @media (max-width: 450px) {
@@ -100,8 +120,8 @@ const Footer = styled.footer`
 `;
 
 const ImgDiv = styled.div`
-  width: 64px;
-  height: 89px;
+  width: 57px;
+  height: 80px;
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
