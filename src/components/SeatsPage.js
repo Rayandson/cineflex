@@ -254,7 +254,7 @@ const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-  @media (max-width: ;450px) {
+  @media (max-width: 450px) {
     margin-bottom: 0px;
   }
 `;
