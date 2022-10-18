@@ -20,6 +20,7 @@ const PosterContainer = styled.div`
 width: 100vw;
 height: 259px;
 background: ${(props) => `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.6) 82.29%, #000000 100%), url(${props.foto})`};
+background-size:820px;
 position: relative;
 @media (max-width: 450px){
   background-size: 350px;
@@ -38,7 +39,7 @@ const Title = styled.p`
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
-font-size: 28px;
+font-size: 24px;
 color: #FFFFFF;
 mix-blend-mode: luminosity;
 opacity: 0.8;
@@ -50,8 +51,8 @@ justify-content: flex-start;
 align-items: center;
 gap: 10px;
     div{
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
         background: #F5600B;
         display: flex;
         justify-content: center;
@@ -60,7 +61,7 @@ gap: 10px;
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 14px;
             color: #FFFFFF;
         }
     }
@@ -68,7 +69,7 @@ gap: 10px;
         font-family: 'Poppins';
 font-style: normal;
 font-weight: 500;
-font-size: 20px;
+font-size: 17px;
 color: #FFFFFF;
 mix-blend-mode: luminosity;
 opacity: 0.8;

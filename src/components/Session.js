@@ -41,7 +41,7 @@ margin-top: 30px;
     font-family: 'Roboto';
 font-style: normal;
 font-weight: 600;
-font-size: 20px;
+font-size: 18px;
 color: #FFFFFF;
     @media (max-width: 450px) {
     margin-left: 23px;
@@ -52,12 +52,13 @@ color: #FFFFFF;
  }
 `
 const BotoesDiv = styled.div`
-width: 80vw;
+width: 100%;
 display: flex;
 flex-wrap: wrap;
 gap: 18px;
 justify-content: center;
 @media (max-width: 450px) {
+    width: 80vw;
     justify-content: flex-start;
     gap: 8px;
     margin-left: 23px;
@@ -65,8 +66,8 @@ justify-content: center;
 `
 
 const Botao = styled.button`
-width: 83px;
-height: 43px;
+width: 79px;
+height: 41px;
 background-color: #E8833A;
 color:#FFFFFF;
 font-size: 18px;

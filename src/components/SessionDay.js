@@ -32,7 +32,7 @@ export default function SessionDay(props) {
 }
 
 const DayContainer = styled.div`
-width: 20%;
+width: 12%;
 height: 100%;
 display: flex;
 flex-direction: column;
@@ -43,7 +43,7 @@ p:first-child {
     font-family: 'Roboto';
 font-style: normal;
 font-weight: 700;
-font-size: 20px;
+font-size: 18px;
 color: ${props => (props.index === props.dayIndex) ? "#E8833A" : "#C5C5C5"}; 
 transition: color 0.2s;
 }
@@ -51,8 +51,11 @@ p {
     font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
-font-size: 17px;
+font-size: 16px;
 color: ${props => (props.index === props.dayIndex) ? "#E8833A" : "#C5C5C5"}; 
 transition: color 0.2s;
 }
+@media (max-width:450px) {
+        width: 20vw;
+    }
 `

@@ -249,9 +249,13 @@ const StyledButton = styled.button`
   font-size: 18px;
   color: #ffffff;
   margin-top: 40px;
+  margin-bottom: 40px;
   flex-shrink: 0;
   &:hover {
     cursor: pointer;
+  }
+  @media (max-width: ;450px) {
+    margin-bottom: 0px;
   }
 `;
 const Footer = styled.footer`

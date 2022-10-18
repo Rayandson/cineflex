@@ -50,7 +50,7 @@ align-items: center;
 background-size: 950px; */
     h1 {
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
     color: #FFFFFF
     }
