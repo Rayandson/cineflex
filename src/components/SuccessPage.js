@@ -18,7 +18,7 @@ export default function SuccessPage(props) {
         <StyledDiv>
         <h2>Filme e sessão</h2>
         <p>{props.movie}</p>
-        <p>{props.date} - {props.time}</p>
+        <p>{props.selectedSessionDay.date} - {props.time}</p>
         </StyledDiv>
         <StyledDiv>
         <h2>Ingressos</h2>

@@ -10,8 +10,8 @@ export default function MoviesPage(props) {
     const [movies, setMovies] = useState(undefined);
     
     useEffect(() => {
-        let promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
-        promise.then((resp) => setMovies(resp.data))
+        axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
+        .then((resp) => setMovies(resp.data))
     },[])
     if(movies === undefined) {
         return(
@@ -25,7 +25,7 @@ export default function MoviesPage(props) {
         <h1>Selecione o filme</h1> 
         </Heading>   
         <MoviesContainer>
-        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie id={movie.id} url={movie.posterURL} title={movie.title} setMovie={props.setMovie}/></Link> )}
+        {movies.map((movie) =><Link to={`./sessions/${movie.id}`}><Movie id={movie.id} url={movie.posterURL} title={movie.title} sinopse={movie.overview} setSinopse={props.setSinopse} setMovie={props.setMovie}/></Link> )}
         </MoviesContainer>
         </Conteudo>
     )

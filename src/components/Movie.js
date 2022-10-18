@@ -7,6 +7,7 @@ export default function Movie(props) {
     function selectMovie() {
         
         props.setMovie(props.title)
+        props.setSinopse(props.sinopse);
         navigate(`./sessions/${props.id}`)
         window.scrollTo(0, 0);
     }

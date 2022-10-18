@@ -8,14 +8,23 @@ export default function Session(props) {
         props.setDate(props.date)
         navigate(`/seats/${id}`)
     }
+    console.log(props.selectedSessionDay)
+
+    if(props.selectedSessionDay !== undefined) {
     return(
         <SessionContainer>
-            <h2>{props.weekday} - {props.date}</h2>
+            <h2>{props.selectedSessionDay.weekday} - {props.selectedSessionDay.date}</h2>
             <BotoesDiv>
-                {props.showtimes.map((t) => <Botao onClick={() => selectSession(t.id)}>{t.name}</Botao>)}
+                {props.selectedSessionDay.showtimes.map((t) => <Botao onClick={() => selectSession(t.id)}>{t.name}</Botao>)}
             </BotoesDiv>
         </SessionContainer>
     )
+    } else {
+        return (
+            <>
+            </>
+        )
+    }
 }
 
 const SessionContainer = styled.div`
@@ -26,12 +35,14 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 font-family: 'Roboto', sans-serif;
-margin-bottom: 40px;
+margin-top: 30px;
 
  h2 {
-    font-size:20px;
-    font-weight: 400;
-    color: #FFFFFF;
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+color: #FFFFFF;
     @media (max-width: 450px) {
     margin-left: 23px;
     }
