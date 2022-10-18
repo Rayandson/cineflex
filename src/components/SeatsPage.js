@@ -97,6 +97,7 @@ overflow:scroll;
  display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 130px;
 /*box-sizing: content-box; */
 
 &::-webkit-scrollbar {

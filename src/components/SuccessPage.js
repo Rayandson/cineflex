@@ -7,6 +7,7 @@ export default function SuccessPage(props) {
     const navigate = useNavigate();
     console.log(props)
     let arrayOrdenado = props.seats;
+    let cpf = props.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
     arrayOrdenado.sort();
 
     return(
@@ -27,7 +28,7 @@ export default function SuccessPage(props) {
         <StyledDiv>
         <h2>Comprador:</h2>
         <p>Nome: {props.nome}</p>
-        <p>CPF: {props.cpf}</p>
+        <p>CPF: {cpf}</p>
         </StyledDiv>
             <Botao onClick={() => navigate("/")}>Voltar pra Home</Botao>
         </Conteudo>
