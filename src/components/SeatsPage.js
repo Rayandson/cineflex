@@ -261,8 +261,8 @@ const StyledButton = styled.button`
 const Footer = styled.footer`
   width: 100%;
   height: 100px;
-  background: linear-gradient(180deg, rgba(4, 36, 63, 0.5) 0%, rgba(0, 64, 118, 0) 100%);
-
+  background: linear-gradient(180deg, rgba(4, 36, 63, 0.6) 0%, rgba(0, 64, 118, 0) 100%);
+  backdrop-filter: blur(2px);
   display: flex;
   justify-content: center;
   align-items: center;
