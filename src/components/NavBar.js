@@ -20,7 +20,7 @@ align-items: center;
 position: fixed;
 left: 0;
 top: 0;
-background-color: #004986;
+background-color: #004B90;
 color: orange;
 font-family: 'Road Rage', cursive;
 font-size: 46px;

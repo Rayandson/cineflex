@@ -103,8 +103,8 @@ const Botao = styled.button`
 width: 225px;
 height: 42px;
 background: #E8833A;
-border-radius: 3px;
-    font-family: 'Roboto';
+border-radius: 5px;
+font-family: 'Roboto';
 font-style: normal;
 font-weight: 400;
 font-size: 18px;

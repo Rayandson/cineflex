@@ -18,13 +18,14 @@ export default function App() {
     const [seats, setSeats] = useState([])
     const [option, setOption] = useState(1);
     const [selectedSessionDay, setSelectedSessionDay] = useState(undefined)
+    const [dayIndex, setDayIndex] = useState(0);
     return(
     <BrowserRouter>
     <AppContainer>
     <NavBar />
     <Routes>
         <Route path="/" element={<MoviesPage movie={movie} setMovie={setMovie} setSinopse={setSinopse} />}/>
-        <Route path="/sessions/:movieId" element={<SessionsPage movie={movie} sinopse={sinopse} setDate={setDate} selectedSessionDay={selectedSessionDay} setSelectedSessionDay={setSelectedSessionDay} option={option} setOption={setOption} />} />
+        <Route path="/sessions/:movieId" element={<SessionsPage movie={movie} sinopse={sinopse} setDate={setDate} selectedSessionDay={selectedSessionDay} setSelectedSessionDay={setSelectedSessionDay} dayIndex={dayIndex} setDayIndex={setDayIndex} option={option} setOption={setOption} />} />
         <Route path="/seats/:sessionId" element={<SeatsPage nome={nome} setNome={setNome} cpf={cpf} setCpf={setCpf} setTime={setTime} seats={seats} setSeats={setSeats}/>} />
         <Route path="/success" element={<SuccessPage movie={movie} date={date} time={time} nome={nome} cpf={cpf} seats={seats} selectedSessionDay={selectedSessionDay}/>} />
     </Routes>

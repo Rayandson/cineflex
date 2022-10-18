@@ -72,6 +72,7 @@ color:#FFFFFF;
 font-size: 18px;
 font-family: 'Roboto', sans-serif;
 border: none;
+border-radius: 5px;
 &:hover {
     cursor: pointer;
 }

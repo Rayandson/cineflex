@@ -48,7 +48,7 @@ export default function SessionsPage(props) {
         <SessoesContent option={props.option}>
         <SessionsDays>
         {/* {sessions.days.map((s) => <Session weekday={s.weekday} date={s.date} showtimes={s.showtimes} setDate={props.setDate} /> )} */}
-        {sessions.days.map((s) => <SessionDay selectedSessionDay={props.selectedSessionDay} setSelectedSessionDay={props.setSelectedSessionDay} showtimes={s.showtimes} weekday={s.weekday} date={s.date} /> )}
+        {sessions.days.map((s, index) => <SessionDay index={index} selectedSessionDay={props.selectedSessionDay} setSelectedSessionDay={props.setSelectedSessionDay} dayIndex={props.dayIndex} setDayIndex={props.setDayIndex} showtimes={s.showtimes} weekday={s.weekday} date={s.date} /> )}
         </SessionsDays> 
         <SessionContainer>
           <Session setDate={props.setDate} selectedSessionDay={props.selectedSessionDay}/>
@@ -195,7 +195,7 @@ const SessoesContent = styled.div`
 width: 100vw;
 /* display: initial; */
 display: ${(props) => (props.option === 1) ? "block" : "none"};
-opacity: ${(props) => (props.option === 1) ? 1 : 0};
+/* opacity: ${(props) => (props.option === 1) ? 1 : 0}; */
 /* visibility: ${(props) => (props.option === 1) ? "visible" : "hidden"}; */
 /* transition: opacity 3s; */
 `

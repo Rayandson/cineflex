@@ -60,17 +60,17 @@ export default function SeatsPage(props) {
             <p>Indisponível</p>
           </DescriptionDiv>
         </SeatsDescription>
-        <Inputs>
+        <Inputs onSubmit={reserve}>
           <InputContainer>
             <p>Nome do comprador</p>
-            <input placeholder="Digite seu nome..." onChange={(e) => props.setNome(e.target.value)} value={props.nome}></input>
+            <input required placeholder="Digite seu nome..." onChange={(e) => props.setNome(e.target.value)} value={props.nome}></input>
           </InputContainer>
           <InputContainer>
             <p>CPF do comprador</p>
-            <input placeholder="Digite seu CPF..." onChange={(e) => props.setCpf(e.target.value)} value={props.cpf}></input>
+            <input required type="number" placeholder="Digite seu CPF..." onChange={(e) => props.setCpf(e.target.value)} value={props.cpf}></input>
           </InputContainer>
+          <StyledButton type="submit">Reservar assento(s)</StyledButton>
         </Inputs>
-        <StyledButton onClick={reserve}>Reservar assento(s)</StyledButton>
         </Conteudo>
         <Footer>
           <ImgDiv>
@@ -186,13 +186,14 @@ const SeatDescription = styled.div`
   align-items: center;
 `;
 
-const Inputs = styled.div`
-  height: 160px;
+const Inputs = styled.form`
+  height: 260px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  margin: 42px 0;
+  margin-top: 42px;
 `;
 
 const InputContainer = styled.div`
@@ -241,13 +242,13 @@ const StyledButton = styled.button`
   height: 42px;
   background: #e8833a;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   color: #ffffff;
-  margin-bottom: 40px;
+  margin-top: 40px;
   flex-shrink: 0;
   &:hover {
     cursor: pointer;
