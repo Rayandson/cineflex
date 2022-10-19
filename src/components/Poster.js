@@ -23,7 +23,7 @@ background: ${(props) => `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb
 background-size:820px;
 position: relative;
 @media (max-width: 450px){
-  background-size: 350px;
+  background-size: 100vw;
 }
 `
 const TitleContainer = styled.div`
