@@ -92,8 +92,8 @@ export default function SeatsPage(props) {
 }
 
 const Conteudo = styled.div`
-height: calc(100vh - 167px);
-overflow:scroll;
+height: calc(100vh - 67px);
+/* overflow:scroll; */
  display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,6 +102,9 @@ overflow:scroll;
 
 &::-webkit-scrollbar {
   display: none;
+}
+@media (max-width: 450px) {
+  overflow:scroll;
 }
 `
 
@@ -264,8 +267,7 @@ const Footer = styled.footer`
   height: 100px;
   background: linear-gradient(180deg, rgba(4, 36, 63, 0.6) 0%, rgba(0, 64, 118, 0) 100%);
   backdrop-filter: blur(2px);
-  display: flex;
-  justify-content: center;
+  display: none;
   align-items: center;
   position: fixed;
   left: 0;
@@ -283,6 +285,7 @@ const Footer = styled.footer`
   }
 
   @media (max-width: 450px) {
+    display:flex;
     justify-content: flex-start;
     height: 100px;
   }

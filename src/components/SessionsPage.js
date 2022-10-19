@@ -97,12 +97,13 @@ overflow-y:scroll; */
     @media (max-width:450px) {
         /* background-size: 550px;
         background-repeat: no-repeat; */
+        min-height: calc(100vh - 67px);
     }
 `
 
 const Conteudo = styled.div`
 width: 60vw;
-height: calc(100vh - 167px);
+height: calc(100vh - 67px);
 overflow:scroll;
 
 &::-webkit-scrollbar {
@@ -110,6 +111,7 @@ overflow:scroll;
 }
 @media (max-width:450px) {
        width: 100vw;
+       height: calc(100vh - 167px);
     }
 
 `
@@ -254,7 +256,7 @@ const Footer = styled.footer`
   width: 100%;
   height: 100px;
   background: linear-gradient(180deg, rgba(4, 36, 63, 0.5) 0%, rgba(0, 64, 118, 0) 100%);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -273,6 +275,7 @@ const Footer = styled.footer`
   }
 
   @media (max-width: 450px) {
+    display:flex;
     justify-content: flex-start;
     height: 100px;
   }
